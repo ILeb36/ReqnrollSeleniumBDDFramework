@@ -18,18 +18,18 @@ namespace ReqnrollSeleniumTestProject.Features
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "3.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::NUnit.Framework.TestFixtureAttribute()]
-    [global::NUnit.Framework.DescriptionAttribute("Youtube search feature")]
+    [global::NUnit.Framework.DescriptionAttribute("Youtube Search With Tables")]
     [global::NUnit.Framework.FixtureLifeCycleAttribute(global::NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class YoutubeSearchFeatureFeature
+    public partial class YoutubeSearchWithTablesFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Youtube search feature", "Search for Might and Magic on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Youtube Search With Tables", "Search for various games on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
-#line 1 "YoutubeSearch.feature"
+#line 1 "YoutubeSearchWithTables.feature"
 #line hidden
         
         [global::NUnit.Framework.OneTimeSetUpAttribute()]
@@ -114,19 +114,28 @@ namespace ReqnrollSeleniumTestProject.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/YoutubeSearch.feature.ndjson", 4);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/YoutubeSearchWithTables.feature.ndjson", 6);
         }
         
         [global::NUnit.Framework.TestAttribute()]
-        [global::NUnit.Framework.DescriptionAttribute("Search for Might and Magic 8")]
+        [global::NUnit.Framework.DescriptionAttribute("Search for various games with Outline")]
         [global::NUnit.Framework.CategoryAttribute("web")]
-        public async global::System.Threading.Tasks.Task SearchForMightAndMagic8()
+        [global::NUnit.Framework.TestCaseAttribute("Heroes 2", "0", null)]
+        [global::NUnit.Framework.TestCaseAttribute("Fallout 2", "1", null)]
+        [global::NUnit.Framework.TestCaseAttribute("Might and Magic 6 -heroes", "2", null)]
+        public async global::System.Threading.Tasks.Task SearchForVariousGamesWithOutline(string searchValue, string @__pickleIndex, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "web"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "0";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for Might and Magic 8", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            argumentsOfScenario.Add("SearchValue", searchValue);
+            string pickleIndex = @__pickleIndex;
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for various games with Outline", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
 #line 9
@@ -143,7 +152,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 await this.FeatureBackgroundAsync();
 #line hidden
 #line 10
- await testRunner.WhenAsync("I search for \"Might and Magic 8\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync(string.Format("I search for \"{0}\"", searchValue), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 11
  await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -153,18 +162,18 @@ await this.FeatureBackgroundAsync();
         }
         
         [global::NUnit.Framework.TestAttribute()]
-        [global::NUnit.Framework.DescriptionAttribute("Search for Might and Magic 7")]
+        [global::NUnit.Framework.DescriptionAttribute("Search for various games with DataTable")]
         [global::NUnit.Framework.CategoryAttribute("web")]
-        public async global::System.Threading.Tasks.Task SearchForMightAndMagic7()
+        public async global::System.Threading.Tasks.Task SearchForVariousGamesWithDataTable()
         {
             string[] tagsOfScenario = new string[] {
                     "web"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "1";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for Might and Magic 7", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            string pickleIndex = "3";
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for various games with DataTable", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 14
+#line 20
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -177,14 +186,16 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line 5
 await this.FeatureBackgroundAsync();
 #line hidden
-#line 15
- await testRunner.WhenAsync("I search for \"Might and Magic 7\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 16
- await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
-#line hidden
-#line 17
- await testRunner.AndAsync("Scenario is failed for testing purpose", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+                global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "SearchValue"});
+                table1.AddRow(new string[] {
+                            "Heroes 2"});
+                table1.AddRow(new string[] {
+                            "Fallout 2"});
+                table1.AddRow(new string[] {
+                            "Might and Magic 6 -heroes"});
+#line 21
+ await testRunner.ThenAsync("Search result page is opened for every item in the list", ((string)(null)), table1, "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
