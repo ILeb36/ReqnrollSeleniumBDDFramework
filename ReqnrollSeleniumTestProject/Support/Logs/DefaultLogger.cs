@@ -2,6 +2,11 @@
 {
     public class DefaultLogger : ILogger
     {
+        public DefaultLogger()
+        {
+
+        }
+
         public void Error(string message, string? screenshot)
         {
             throw new NotImplementedException();

@@ -7,14 +7,14 @@ namespace ReqnrollSeleniumTestProject.Support
     {
         //protected static IServiceCollection services;
         protected Browser Browser;
-        private static IWebDriver? _webDriver;
+        private IWebDriver? webDriver;
 
-        public static IWebDriver WebDriver
+        public IWebDriver WebDriver
         {
             get
             {
-                _webDriver ??= WebDriverManager.GetNewWebDriver;
-                return _webDriver;
+                this.webDriver ??= WebDriverManager.GetNewWebDriver;
+                return this.webDriver;
             }
             protected set { }
         }
@@ -28,10 +28,10 @@ namespace ReqnrollSeleniumTestProject.Support
 
         protected void CloseWebDriver()
         {
-            if (_webDriver != null)
+            if (this.webDriver != null)
             {
-                _webDriver.Quit();
-                _webDriver = null;
+                this.webDriver.Quit();
+                this.webDriver = null;
             }
         }
     }

@@ -40,6 +40,7 @@ namespace ReqnrollSeleniumTestProject.Support
         {
             var browserVariableName = ConfigReader.GetEnvironmentVariableNameForBrowser;
             var browserName = Environment.GetEnvironmentVariable(browserVariableName, EnvironmentVariableTarget.Process);
+
             //if (browserName is null) // for environment variables
             //{
             //    throw new Exception($"Not able to ready value from '{browserVariableName}' environment variables.");

@@ -8,6 +8,6 @@ namespace ReqnrollSeleniumTestProject.Support.Screenshots
 {
     interface IScreensaver
     {
-        public string MakeScreenshot();
+        public string MakeScreenshot(ScenarioContext context);
     }
 }

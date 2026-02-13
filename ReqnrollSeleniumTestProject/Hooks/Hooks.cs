@@ -1,25 +1,36 @@
-﻿using ReqnrollSeleniumTestProject.Support;
+﻿using Microsoft.Extensions.DependencyInjection;
+using ReqnrollSeleniumTestProject.Support;
+using ReqnrollSeleniumTestProject.Support.Screenshots;
+using ServiceContainer = ReqnrollSeleniumTestProject.Support.ServiceContainer;
 
 namespace ReqnrollSeleniumTestProject.Hooks
 {
     [Binding]
-    public class Hooks : BaseEntity
+    public class Hooks
     {
+        private readonly ScenarioContext scenarioContext;
+        private readonly ServiceContainer serviceContainer;
 
-        public Hooks()
+        public Hooks(ScenarioContext scenarioContext)
         {
+            this.serviceContainer = ServiceContainer.Instance;
+            this.scenarioContext = scenarioContext;
         }
 
-        [BeforeScenario]
+        [BeforeScenario("@web")]
         public void SetUp()
         {
-            WebDriver.Manage().Window.Maximize();
+            var browser = this.serviceContainer.ServiceProvider.GetRequiredService<Browser>();
+            browser.WebDriver.Manage().Window.Maximize();
         }
 
-        [AfterScenario]
+        [AfterScenario("@web")]
         public void TearDown()
         {
-            CloseWebDriver();
+            var browser = this.serviceContainer.ServiceProvider.GetRequiredService<Browser>();
+            var screenSaver = this.serviceContainer.ServiceProvider.GetRequiredService<IScreensaver>();
+            var screenPath = screenSaver.MakeScreenshot(this.scenarioContext);
+            browser.CloseBrowser();
         }
 
         [BeforeTestRun]

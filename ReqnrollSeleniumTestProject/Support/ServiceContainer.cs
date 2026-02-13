@@ -10,7 +10,7 @@ namespace ReqnrollSeleniumTestProject.Support
 
         public IServiceProvider ServiceProvider { get; private set; }
 
-        public static ServiceContainer GetInstance
+        public static ServiceContainer Instance
         {
             get
             {
@@ -26,13 +26,11 @@ namespace ReqnrollSeleniumTestProject.Support
 
         private IServiceProvider InitServiceProvider()
         {
-            //IWebDriver driver = WebDriverManager.GetInstance.WebDriver;
             var services = new ServiceCollection();
             services
-                //.AddSingleton<IWebDriver>(driver)
-                .AddTransient<ILogger, DefaultLogger>()
-                .AddTransient<IScreensaver, DefaultScreensaver>()
-                .AddTransient<Browser, Browser>();
+                .AddSingleton<Browser, Browser>()
+                .AddSingleton<ILogger, DefaultLogger>()
+                .AddTransient<IScreensaver, DefaultScreensaver>();
             return services.BuildServiceProvider();
         }
     }

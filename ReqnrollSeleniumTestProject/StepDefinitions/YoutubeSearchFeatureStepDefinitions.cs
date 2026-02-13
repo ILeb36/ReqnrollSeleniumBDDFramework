@@ -7,7 +7,7 @@ using ReqnrollSeleniumTestProject.Support;
 namespace ReqnrollSeleniumTestProject.StepDefinitions
 {
     [Binding]
-    public class YoutubeSearchFeatureStepDefinitions : BaseEntity
+    public class YoutubeSearchFeatureStepDefinitions : Browser
     {
 
         [Given("I open the Youtube")]

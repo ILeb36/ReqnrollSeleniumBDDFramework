@@ -119,11 +119,11 @@ namespace ReqnrollSeleniumTestProject.Features
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Search for Testers Talk")]
-        [global::NUnit.Framework.CategoryAttribute("TestersTalk")]
+        [global::NUnit.Framework.CategoryAttribute("web")]
         public async global::System.Threading.Tasks.Task SearchForTestersTalk()
         {
             string[] tagsOfScenario = new string[] {
-                    "TestersTalk"};
+                    "web"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "0";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for Testers Talk", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
@@ -154,11 +154,11 @@ await this.FeatureBackgroundAsync();
         
         [global::NUnit.Framework.TestAttribute()]
         [global::NUnit.Framework.DescriptionAttribute("Search for Testers Talk 2")]
-        [global::NUnit.Framework.CategoryAttribute("TestersTalk")]
+        [global::NUnit.Framework.CategoryAttribute("web")]
         public async global::System.Threading.Tasks.Task SearchForTestersTalk2()
         {
             string[] tagsOfScenario = new string[] {
-                    "TestersTalk"};
+                    "web"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "1";
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Search for Testers Talk 2", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);

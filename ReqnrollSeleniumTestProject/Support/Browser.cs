@@ -1,24 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace ReqnrollSeleniumTestProject.Support
 {
     public class Browser
     {
-        private readonly IWebDriver _webDriver;
+        private static IWebDriver _webDriver;
 
-
-
-
-        public Browser(IWebDriver webDriver)
+        public IWebDriver WebDriver
         {
-            _webDriver = webDriver;
+            get
+            {
+                _webDriver ??= WebDriverManager.GetNewWebDriver;
+                return _webDriver;
+            }
+            private set
+            {
+                _webDriver = value;
+            }
         }
 
+        public Browser()
+        {
+            //initialization when I will have something for that
+        }
+
+
         //all actions with browser, waits, alerts, refreshing
+
+        public void OpenUrl(string url)
+        {
+            this.WebDriver.Navigate().GoToUrl(url);
+        }
+
+        public void CloseBrowser()
+        {
+            if (this.WebDriver != null)
+            {
+                this.WebDriver.Quit();
+                this.WebDriver = null;
+            }
+        }
     }
 }

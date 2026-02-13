@@ -9,8 +9,11 @@ namespace ReqnrollSeleniumTestProject.Support
 
         public static string GetEnvironmentVariableNameForBrowser => ConfigurationManager.AppSettings["EnvironmentVariableNameForBrowser"];
 
-        public static string GetDownloadFolderName => ConfigurationManager.AppSettings["DownloadFolderName"];
+        public static string GetDownloadsFolderName => ConfigurationManager.AppSettings["DownloadsFolderName"];
 
+        public static string GetScreenshotsFolderName => ConfigurationManager.AppSettings["ScreenshotsFolderName"];
+
+        public static string GetEnvironmentVariableNameForUrl => ConfigurationManager.AppSettings["EnvironmentVariableNameForUrl"];
 #pragma warning restore CS8603 // Possible null reference return.
     }
 }
