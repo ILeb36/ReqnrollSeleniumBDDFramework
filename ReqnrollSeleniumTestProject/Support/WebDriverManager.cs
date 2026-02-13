@@ -38,9 +38,11 @@ namespace ReqnrollSeleniumTestProject.Support
 
         private static BrowserEnum ParseBrowserName(string browserName)
         {
-            if (EnumsHelper.TryParse(browserName, out BrowserEnum? enumElement))
+            if (EnumsHelper.TryParse(browserName, true, out BrowserEnum? enumElement))
             {
+#pragma warning disable CS8629 // Nullable value type may be null.
                 return enumElement.Value;
+#pragma warning restore CS8629 // Nullable value type may be null.
             }
 
             throw new Exception($"We can't convert browser {browserName} to {nameof(BrowserEnum)} element");

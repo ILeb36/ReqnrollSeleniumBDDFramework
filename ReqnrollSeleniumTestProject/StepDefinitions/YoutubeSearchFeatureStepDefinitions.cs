@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Reqnroll;
@@ -31,8 +32,13 @@ namespace ReqnrollSeleniumTestProject.StepDefinitions
         [Then("Search result page is opened")]
         public void ThenSearchResultPageIsOpened()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
         }
 
+        [Then("Scenario is failed for testing proposes")]
+        public void ThenScenarioIsFailedForTestingProposes()
+        {
+            Assert.Fail();
+        }
     }
 }

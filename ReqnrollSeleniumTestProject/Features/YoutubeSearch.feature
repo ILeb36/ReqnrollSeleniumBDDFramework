@@ -14,3 +14,4 @@ Scenario: Search for Might and Magic 8
 Scenario: Search for Might and Magic 7
 	When I search for the Might and Magic 7
 	Then Search result page is opened
+	And Scenario is failed for testing proposes

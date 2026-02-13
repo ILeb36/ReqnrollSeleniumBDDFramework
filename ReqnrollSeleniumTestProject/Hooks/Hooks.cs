@@ -19,7 +19,12 @@ namespace ReqnrollSeleniumTestProject.Hooks
         [AfterScenario("@web")]
         public void TearDown()
         {
-            Browser.MakeScreenshot(this.ScenarioContext.ScenarioInfo.Title);
+            if (ScenarioContext.TestError != null)
+            {
+                Browser.MakeScreenshot(this.ScenarioContext.ScenarioInfo.Title);
+
+            }
+
             Browser.CloseBrowser();
         }
 

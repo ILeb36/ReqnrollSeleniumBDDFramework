@@ -183,6 +183,9 @@ await this.FeatureBackgroundAsync();
 #line 16
  await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
+#line 17
+ await testRunner.AndAsync("Scenario is failed for testing proposes", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }
