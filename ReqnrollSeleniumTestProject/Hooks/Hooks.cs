@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using ReqnrollSeleniumTestProject.Support;
-using ReqnrollSeleniumTestProject.Support.Screenshots;
-using ServiceContainer = ReqnrollSeleniumTestProject.Support.ServiceContainer;
+﻿using ReqnrollSeleniumTestProject.Support;
 
 namespace ReqnrollSeleniumTestProject.Hooks
 {

@@ -38,12 +38,12 @@ namespace ReqnrollSeleniumTestProject.Support
 
         private static BrowserEnum ParseBrowserName(string browserName)
         {
-            if (Enum.TryParse(typeof(BrowserEnum), browserName, true, out var result))
+            if (EnumsHelper.TryParse(browserName, out BrowserEnum? enumElement))
             {
-                return (BrowserEnum)result;
+                return enumElement.Value;
             }
 
-            throw new Exception($"Can't convert browser {browserName} to {nameof(BrowserEnum)} element");
+            throw new Exception($"We can't convert browser {browserName} to {nameof(BrowserEnum)} element");
         }
     }
 }
