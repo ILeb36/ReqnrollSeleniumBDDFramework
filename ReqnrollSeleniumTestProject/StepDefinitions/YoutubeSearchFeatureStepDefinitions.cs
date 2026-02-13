@@ -7,21 +7,24 @@ using ReqnrollSeleniumTestProject.Support;
 namespace ReqnrollSeleniumTestProject.StepDefinitions
 {
     [Binding]
-    public class YoutubeSearchFeatureStepDefinitions : Browser
+    public class YoutubeSearchFeatureStepDefinitions : BaseBindings
     {
+        public YoutubeSearchFeatureStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
+        {
+        }
 
         [Given("I open the Youtube")]
         public void GivenIOpenTheYoutube()
         {
-            WebDriver.Navigate().GoToUrl("https://www.youtube.com");
+            Browser.OpenBaseUrl();
         }
 
-        [When("I search for the Testers Talk")]
-        public void WhenISearchForTheTestersTalk()
+        [When("I search for the Might and Magic {int}")]
+        public void WhenISearchForTheMightAndMagic(int number)
         {
             var element = WebDriver.FindElement(By.Name("search_query"));
             
-            element.SendKeys("Testers talk");
+            element.SendKeys($"Might and Magic {number} -heroes");
             element.SendKeys(Keys.Enter);
         }
 

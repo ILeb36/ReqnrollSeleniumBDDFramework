@@ -5,15 +5,26 @@ namespace ReqnrollSeleniumTestProject.Support
     internal static class ConfigReader
     {
 #pragma warning disable CS8603 // Possible null reference return.
-        public static string GetDefaultBrowser => ConfigurationManager.AppSettings["DefaultBrowser"];
+        public static string GetBrowser => GetSetting("Browser");
 
-        public static string GetEnvironmentVariableNameForBrowser => ConfigurationManager.AppSettings["EnvironmentVariableNameForBrowser"];
+        public static string GetDownloadsFolderName => GetSetting("DownloadsFolderName");
 
-        public static string GetDownloadsFolderName => ConfigurationManager.AppSettings["DownloadsFolderName"];
+        public static string GetScreenshotsFolderName => GetSetting("ScreenshotsFolderName");
 
-        public static string GetScreenshotsFolderName => ConfigurationManager.AppSettings["ScreenshotsFolderName"];
+        public static string GetUrl => GetSetting("Url");
 
-        public static string GetEnvironmentVariableNameForUrl => ConfigurationManager.AppSettings["EnvironmentVariableNameForUrl"];
+        private static string GetSetting(string key)
+        {
+            var value = Environment.GetEnvironmentVariable(key);
+
+            if (string.IsNullOrEmpty(value))
+            {
+                // to do: WARN in logger
+                value = ConfigurationManager.AppSettings[key];
+            }
+
+            return value;
+        }
 #pragma warning restore CS8603 // Possible null reference return.
     }
 }

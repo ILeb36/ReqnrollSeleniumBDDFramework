@@ -6,7 +6,7 @@ namespace ReqnrollSeleniumTestProject.Support
 {
     public class ServiceContainer
     {
-        private static ServiceContainer _container;
+        private static ServiceContainer? container;
 
         public IServiceProvider ServiceProvider { get; private set; }
 
@@ -14,8 +14,8 @@ namespace ReqnrollSeleniumTestProject.Support
         {
             get
             {
-                _container ??= new ServiceContainer();
-                return _container;
+                container ??= new ServiceContainer();
+                return container;
             }
         }
 
@@ -28,9 +28,9 @@ namespace ReqnrollSeleniumTestProject.Support
         {
             var services = new ServiceCollection();
             services
-                .AddSingleton<Browser, Browser>()
+                .AddTransient<IScreensaver, DefaultScreensaver>()
                 .AddSingleton<ILogger, DefaultLogger>()
-                .AddTransient<IScreensaver, DefaultScreensaver>();
+                .AddSingleton<Browser, Browser>();
             return services.BuildServiceProvider();
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReqnrollSeleniumTestProject.Support.Logs
 {
-    interface ILogger
+    public interface ILogger
     {
         void Log(string message);
         void Warn(string message);

@@ -17,7 +17,7 @@ namespace ReqnrollSeleniumTestProject.Support
         private static IWebDriver InitializeWebDriver()
         {
             var downloadFolderPath = FileExplorerHelper.GetDownloadFolderPath();
-            var browserName = GetBrowserName();
+            var browserName = ConfigReader.GetBrowser;
             var browser = ParseBrowserName(browserName);
             var webDriverStrategy = GetWebDriverStrategy(browser);
             return webDriverStrategy.GetWebDriver(downloadFolderPath);
@@ -34,20 +34,6 @@ namespace ReqnrollSeleniumTestProject.Support
                 default:
                     throw new NotSupportedException($"We don't know how to initialize browser {browser}.");
             }
-        }
-
-        private static string GetBrowserName()
-        {
-            var browserVariableName = ConfigReader.GetEnvironmentVariableNameForBrowser;
-            var browserName = Environment.GetEnvironmentVariable(browserVariableName, EnvironmentVariableTarget.Process);
-
-            //if (browserName is null) // for environment variables
-            //{
-            //    throw new Exception($"Not able to ready value from '{browserVariableName}' environment variables.");
-            //}
-
-            browserName ??= ConfigReader.GetDefaultBrowser;
-            return browserName;
         }
 
         private static BrowserEnum ParseBrowserName(string browserName)

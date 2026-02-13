@@ -1,16 +1,16 @@
 ﻿Feature: Youtube search feature
 
-Search for Testers Talk on Youtube
+Search for Might and Magic on Youtube
 
 Background: 
 	Given I open the Youtube
 
 @web
-Scenario: Search for Testers Talk
-	When I search for the Testers Talk
+Scenario: Search for Might and Magic 8
+	When I search for the Might and Magic 8
 	Then Search result page is opened
 
 @web
-Scenario: Search for Testers Talk 2
-	When I search for the Testers Talk
+Scenario: Search for Might and Magic 7
+	When I search for the Might and Magic 7
 	Then Search result page is opened

@@ -1,36 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace ReqnrollSeleniumTestProject.Support.Screenshots
 {
     public class DefaultScreensaver : IScreensaver
     {
-        private readonly Browser browser;
         private string screenshotsFolderPath;
 
-        public DefaultScreensaver(Browser browser)
+        public DefaultScreensaver()
         {
-            this.browser = browser;
             this.screenshotsFolderPath = FileExplorerHelper.GetScreenshotsFolderPath();
             FileExplorerHelper.CreateFolder(this.screenshotsFolderPath);
         }
 
-        public string MakeScreenshot(ScenarioContext context)
+        public string MakeScreenshot(IWebDriver driver, string screenshotName)
         {
-            ITakesScreenshot takesScreenshot = (ITakesScreenshot)this.browser.WebDriver;
+            ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
-            string screenshotPath = Path.Combine(this.screenshotsFolderPath, this.GetScreenshotNameWithDatetime(context));
+            string screenshotPath = Path.Combine(this.screenshotsFolderPath, this.GetScreenshotNameWithDatetime(screenshotName));
             screenshot.SaveAsFile(screenshotPath);
             return screenshotPath;
         }
 
-        private string GetScreenshotNameWithDatetime(ScenarioContext context)
+        private string GetScreenshotNameWithDatetime(string screenshotName)
         {
-            return string.Concat(context.ScenarioInfo.Title, DateTime.Now.ToString("_dd.MM.yyyy_HH.mm"), ".png");
+            return string.Concat(screenshotName, DateTime.Now.ToString("_dd.MM.yyyy_HH.mm"), ".png");
         }
     }
 }

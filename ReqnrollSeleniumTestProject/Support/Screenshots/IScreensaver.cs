@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenQA.Selenium;
 
 namespace ReqnrollSeleniumTestProject.Support.Screenshots
 {
-    interface IScreensaver
+    public interface IScreensaver
     {
-        public string MakeScreenshot(ScenarioContext context);
+        public string MakeScreenshot(IWebDriver driver, string screenshotName);
     }
 }
