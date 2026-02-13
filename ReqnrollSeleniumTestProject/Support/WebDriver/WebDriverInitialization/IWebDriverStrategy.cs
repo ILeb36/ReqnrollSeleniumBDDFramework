@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ReqnrollSeleniumTestProject.Support.WebDriverInitializations
+namespace ReqnrollSeleniumTestProject.Support.WebDriver.WebDriverInitialization
 {
     interface IWebDriverStrategy
     {

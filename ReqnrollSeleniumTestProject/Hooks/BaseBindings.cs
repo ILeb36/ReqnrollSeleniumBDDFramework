@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using OpenQA.Selenium;
+using ReqnrollSeleniumTestProject.Support;
+using ReqnrollSeleniumTestProject.Support.WebDriver;
 
-namespace ReqnrollSeleniumTestProject.Support
+namespace ReqnrollSeleniumTestProject.Hooks
 {
     [Binding]
     public abstract class BaseBindings
@@ -19,7 +21,7 @@ namespace ReqnrollSeleniumTestProject.Support
 
         public BaseBindings(ScenarioContext scenarioContext)
         {
-            this.ScenarioContext = scenarioContext;
+            ScenarioContext = scenarioContext;
         }
 
         static BaseBindings()

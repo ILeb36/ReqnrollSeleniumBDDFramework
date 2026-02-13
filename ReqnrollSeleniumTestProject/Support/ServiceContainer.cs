@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using ReqnrollSeleniumTestProject.Support.Logs;
 using ReqnrollSeleniumTestProject.Support.Screenshots;
+using ReqnrollSeleniumTestProject.Support.WebDriver;
 
 namespace ReqnrollSeleniumTestProject.Support
 {

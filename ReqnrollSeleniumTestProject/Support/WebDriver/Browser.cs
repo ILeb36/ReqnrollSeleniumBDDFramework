@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using ReqnrollSeleniumTestProject.Support.Logs;
 using ReqnrollSeleniumTestProject.Support.Screenshots;
+using ReqnrollSeleniumTestProject.Support.StaticHelpers;
 
-namespace ReqnrollSeleniumTestProject.Support
+namespace ReqnrollSeleniumTestProject.Support.WebDriver
 {
     public class Browser
     {
@@ -28,28 +29,27 @@ namespace ReqnrollSeleniumTestProject.Support
 
         //all actions with browser, waits, alerts, refreshing
 
-        public void MakeScreenshot(string screenshotName)
+        public string MakeScreenshot(string screenshotName)
         {
-            var screenshotPath = this.screensaver.MakeScreenshot(this.WebDriver, screenshotName);
-            //log screenshotPath
+            return screensaver.MakeScreenshot(WebDriver, screenshotName);
         }
 
         public void OpenUrl(string url)
         {
-            this.WebDriver.Navigate().GoToUrl(url);
+            WebDriver.Navigate().GoToUrl(url);
         }
 
         public void OpenBaseUrl()
         {
             var url = ConfigReader.GetUrl;
-            this.WebDriver.Navigate().GoToUrl(url);
+            WebDriver.Navigate().GoToUrl(url);
         }
 
         public void CloseBrowser()
         {
-            if (this.WebDriver != null)
+            if (WebDriver != null)
             {
-                this.WebDriver.Quit();
+                WebDriver.Quit();
                 webDriver = null;
             }
         }

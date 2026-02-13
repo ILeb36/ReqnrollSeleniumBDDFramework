@@ -3,6 +3,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Reqnroll;
+using ReqnrollSeleniumTestProject.Hooks;
 using ReqnrollSeleniumTestProject.Support;
 
 namespace ReqnrollSeleniumTestProject.StepDefinitions

@@ -1,4 +1,4 @@
-﻿namespace ReqnrollSeleniumTestProject.Support
+﻿namespace ReqnrollSeleniumTestProject.Support.StaticHelpers
 {
     public static class FileExplorerHelper
     {

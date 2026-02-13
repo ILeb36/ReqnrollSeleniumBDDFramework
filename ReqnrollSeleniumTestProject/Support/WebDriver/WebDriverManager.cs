@@ -1,8 +1,9 @@
 ﻿using OpenQA.Selenium;
 using ReqnrollSeleniumTestProject.Enums;
-using ReqnrollSeleniumTestProject.Support.WebDriverInitializations;
+using ReqnrollSeleniumTestProject.Support.StaticHelpers;
+using ReqnrollSeleniumTestProject.Support.WebDriver.WebDriverInitialization;
 
-namespace ReqnrollSeleniumTestProject.Support
+namespace ReqnrollSeleniumTestProject.Support.WebDriver
 {
     public static class WebDriverManager
     {

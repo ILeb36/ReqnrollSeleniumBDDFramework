@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace ReqnrollSeleniumTestProject.Support
+namespace ReqnrollSeleniumTestProject.Support.StaticHelpers
 {
     internal static class ConfigReader
     {

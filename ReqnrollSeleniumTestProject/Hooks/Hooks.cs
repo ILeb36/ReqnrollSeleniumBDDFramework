@@ -1,4 +1,6 @@
-﻿using ReqnrollSeleniumTestProject.Support;
+﻿using Allure.Net.Commons;
+using NUnit.Framework;
+using ReqnrollSeleniumTestProject.Support;
 
 namespace ReqnrollSeleniumTestProject.Hooks
 {
@@ -21,8 +23,10 @@ namespace ReqnrollSeleniumTestProject.Hooks
         {
             if (ScenarioContext.TestError != null)
             {
-                Browser.MakeScreenshot(this.ScenarioContext.ScenarioInfo.Title);
-
+                //Alternative - "AfterStep" hook, check step status, make and add screenshot if status is Failed
+                var screenshotPath = Browser.MakeScreenshot(this.ScenarioContext.ScenarioInfo.Title);
+                TestContext.AddTestAttachment(screenshotPath);
+                AllureApi.AddAttachment(screenshotPath);
             }
 
             Browser.CloseBrowser();

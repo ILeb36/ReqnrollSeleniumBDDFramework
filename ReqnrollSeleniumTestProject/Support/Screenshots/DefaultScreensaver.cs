@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using ReqnrollSeleniumTestProject.Support.StaticHelpers;
 
 namespace ReqnrollSeleniumTestProject.Support.Screenshots
 {

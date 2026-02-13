@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
-namespace ReqnrollSeleniumTestProject.Support.WebDriverInitializations
+namespace ReqnrollSeleniumTestProject.Support.WebDriver.WebDriverInitialization
 {
     public class FirefoxWebDriverStrategy : IWebDriverStrategy
     {
