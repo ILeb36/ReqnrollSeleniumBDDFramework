@@ -143,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 await this.FeatureBackgroundAsync();
 #line hidden
 #line 10
- await testRunner.WhenAsync("I search for the Might and Magic 8", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync("I search for \"Might and Magic 8\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 11
  await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -178,13 +178,16 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 await this.FeatureBackgroundAsync();
 #line hidden
 #line 15
- await testRunner.WhenAsync("I search for the Might and Magic 7", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync("I search for \"Might and Magic 7\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 16
  await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 17
- await testRunner.AndAsync("Scenario is failed for testing proposes", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("Scenario is failed for testing purpose", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 18
+ await testRunner.WhenAsync("I search for \"Might and Magic 7\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

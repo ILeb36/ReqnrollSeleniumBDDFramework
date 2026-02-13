@@ -1,10 +1,6 @@
-using System;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using Reqnroll;
 using ReqnrollSeleniumTestProject.Hooks;
-using ReqnrollSeleniumTestProject.Support;
 
 namespace ReqnrollSeleniumTestProject.StepDefinitions
 {
@@ -21,12 +17,12 @@ namespace ReqnrollSeleniumTestProject.StepDefinitions
             Browser.OpenBaseUrl();
         }
 
-        [When("I search for the Might and Magic {int}")]
-        public void WhenISearchForTheMightAndMagic(int number)
+        [When("I search for {string}")]
+        public void WhenISearchForContent(string search)
         {
             var element = WebDriver.FindElement(By.Name("search_query"));
-            
-            element.SendKeys($"Might and Magic {number} -heroes");
+
+            element.SendKeys(search);
             element.SendKeys(Keys.Enter);
         }
 
@@ -36,8 +32,8 @@ namespace ReqnrollSeleniumTestProject.StepDefinitions
             Thread.Sleep(1000);
         }
 
-        [Then("Scenario is failed for testing proposes")]
-        public void ThenScenarioIsFailedForTestingProposes()
+        [Then("Scenario is failed for testing purpose")]
+        public void ThenScenarioIsFailedForTestingPurpose()
         {
             Assert.Fail();
         }

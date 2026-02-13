@@ -7,11 +7,12 @@ Background:
 
 @web
 Scenario: Search for Might and Magic 8
-	When I search for the Might and Magic 8
+	When I search for "Might and Magic 8"
 	Then Search result page is opened
 
 @web
 Scenario: Search for Might and Magic 7
-	When I search for the Might and Magic 7
+	When I search for "Might and Magic 7"
 	Then Search result page is opened
-	And Scenario is failed for testing proposes
+	And Scenario is failed for testing purpose
+	When I search for "Might and Magic 7"

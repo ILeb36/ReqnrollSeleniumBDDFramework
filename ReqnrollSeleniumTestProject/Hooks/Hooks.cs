@@ -1,5 +1,6 @@
 ﻿using Allure.Net.Commons;
 using NUnit.Framework;
+using Reqnroll.Bindings;
 using ReqnrollSeleniumTestProject.Support;
 
 namespace ReqnrollSeleniumTestProject.Hooks
@@ -9,27 +10,29 @@ namespace ReqnrollSeleniumTestProject.Hooks
     {
         public Hooks(ScenarioContext scenarioContext) : base(scenarioContext)
         {
-
         }
 
         [BeforeScenario("@web")]
-        public void SetUp()
+        public void BeforeScenarioSetUp()
         {
             Browser.WebDriver.Manage().Window.Maximize();
         }
 
         [AfterScenario("@web")]
-        public void TearDown()
+        public void AfterScenarioTearDown()
+        {
+            Browser.CloseBrowser();
+        }
+
+        [AfterStep]
+        public void AfterStepTearDown()
         {
             if (ScenarioContext.TestError != null)
             {
-                //Alternative - "AfterStep" hook, check step status, make and add screenshot if status is Failed
                 var screenshotPath = Browser.MakeScreenshot(this.ScenarioContext.ScenarioInfo.Title);
                 TestContext.AddTestAttachment(screenshotPath);
                 AllureApi.AddAttachment(screenshotPath);
             }
-
-            Browser.CloseBrowser();
         }
 
         [BeforeTestRun]

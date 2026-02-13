@@ -50,6 +50,7 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             if (WebDriver != null)
             {
                 WebDriver.Quit();
+                WebDriver.Dispose();
                 webDriver = null;
             }
         }
