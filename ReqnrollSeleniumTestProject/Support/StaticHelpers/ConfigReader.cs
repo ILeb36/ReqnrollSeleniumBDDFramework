@@ -11,12 +11,15 @@ namespace ReqnrollSeleniumTestProject.Support.StaticHelpers
 
         public static string GetScreenshotsFolderName => GetSetting("ScreenshotsFolderName");
 
-        public static string GetUrl => GetSetting("Url");
+        public static string GetSiteUrl => GetSetting("SiteUrl");
+
+        public static string GetAPIUrl => GetSetting("APIUrl");
 
         private static string GetSetting(string key)
         {
             var value = Environment.GetEnvironmentVariable(key);
 
+            // I don't like this solution, even if it's used in real projects
             if (string.IsNullOrEmpty(value))
             {
                 // to do: WARN in logger

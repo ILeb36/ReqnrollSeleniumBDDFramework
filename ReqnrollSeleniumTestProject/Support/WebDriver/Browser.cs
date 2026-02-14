@@ -41,7 +41,7 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
 
         public void OpenBaseUrl()
         {
-            var url = ConfigReader.GetUrl;
+            var url = ConfigReader.GetSiteUrl;
             WebDriver.Navigate().GoToUrl(url);
         }
 
