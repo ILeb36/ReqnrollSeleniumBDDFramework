@@ -32,7 +32,7 @@ namespace ReqnrollSeleniumTestProject.Hooks
                 AllureApi.AddAttachment(screenshotPath);
                 //Another method overload leads to "System.UnauthorizedAccessException : Access to the path 'F:\C#\ReqnrollSeleniumTestProject\ReqnrollSeleniumTestProject\bin\Debug\net8.0\Screenshots' is denied."
                 //Adding manifest with Administrator permissions didn't help
-                //Need to check with console tests running as Administrator
+                //todo: Check with console tests running as Administrator
             }
         }
     }

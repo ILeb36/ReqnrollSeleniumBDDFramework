@@ -29,6 +29,7 @@ namespace ReqnrollSeleniumTestProject.Support
         {
             var services = new ServiceCollection();
             services
+                .AddSingleton<HttpClient, HttpClient>()
                 .AddTransient<IScreensaver, DefaultScreensaver>()
                 .AddSingleton<ILogger, DefaultLogger>()
                 .AddSingleton<Browser, Browser>();
