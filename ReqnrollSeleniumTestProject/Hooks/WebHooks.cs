@@ -4,9 +4,9 @@ using NUnit.Framework;
 namespace ReqnrollSeleniumTestProject.Hooks
 {
     [Binding]
-    public class Hooks : BaseBindings
+    public class WebHooks : BaseWebBindings
     {
-        public Hooks(ScenarioContext scenarioContext) : base(scenarioContext)
+        public WebHooks(ScenarioContext scenarioContext) : base(scenarioContext)
         {
         }
 
@@ -22,7 +22,7 @@ namespace ReqnrollSeleniumTestProject.Hooks
             Browser.CloseBrowser();
         }
 
-        [AfterStep]
+        [AfterStep("@web")]
         public void AfterStepTearDown()
         {
             if (ScenarioContext.TestError != null)
@@ -34,18 +34,6 @@ namespace ReqnrollSeleniumTestProject.Hooks
                 //Adding manifest with Administrator permissions didn't help
                 //Need to check with console tests running as Administrator
             }
-        }
-
-        [BeforeTestRun]
-        public static void OneTimeSetUp()
-        {
-
-        }
-
-        [AfterTestRun]
-        public static void OneTimeTearDown()
-        {
-
         }
     }
 }

@@ -11,7 +11,7 @@
 #region Designer generated code
 #pragma warning disable
 using Reqnroll;
-namespace ReqnrollSeleniumTestProject.Features
+namespace ReqnrollSeleniumTestProject.Features.Web.Youtube
 {
     
     
@@ -27,7 +27,7 @@ namespace ReqnrollSeleniumTestProject.Features
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Youtube search feature", "Search for Might and Magic on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features/Web/Youtube", "Youtube search feature", "Search for Might and Magic on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
 #line 1 "YoutubeSearch.feature"
 #line hidden
@@ -114,7 +114,7 @@ namespace ReqnrollSeleniumTestProject.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/YoutubeSearch.feature.ndjson", 4);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Web/Youtube/YoutubeSearch.feature.ndjson", 4);
         }
         
         [global::NUnit.Framework.TestAttribute()]

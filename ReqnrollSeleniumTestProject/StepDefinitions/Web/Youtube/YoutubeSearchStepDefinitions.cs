@@ -1,13 +1,12 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
-using Reqnroll.CommonModels;
-using ReqnrollSeleniumTestProject.Classes.YoutubeSearch;
+using ReqnrollSeleniumTestProject.Models.YoutubeSearch;
 using ReqnrollSeleniumTestProject.Hooks;
 
-namespace ReqnrollSeleniumTestProject.StepDefinitions
+namespace ReqnrollSeleniumTestProject.StepDefinitions.Web.Youtube
 {
     [Binding]
-    public class YoutubeSearchStepDefinitions : BaseBindings
+    public class YoutubeSearchStepDefinitions : BaseWebBindings
     {
         public YoutubeSearchStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
         {
