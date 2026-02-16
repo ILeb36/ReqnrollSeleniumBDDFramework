@@ -11,7 +11,7 @@
 #region Designer generated code
 #pragma warning disable
 using Reqnroll;
-namespace ReqnrollSeleniumTestProject.Features.Web.Youtube
+namespace ReqnrollSeleniumTestProject.Features.Web.Youtube.Search
 {
     
     
@@ -27,7 +27,7 @@ namespace ReqnrollSeleniumTestProject.Features.Web.Youtube
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features/Web/Youtube", "Youtube Search With Tables", "Search for various games on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features/Web/Youtube/Search", "Youtube Search With Tables", "Search for various games on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
 #line 1 "YoutubeSearchWithTables.feature"
 #line hidden
@@ -114,7 +114,7 @@ namespace ReqnrollSeleniumTestProject.Features.Web.Youtube
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Web/Youtube/YoutubeSearchWithTables.feature.ndjson", 6);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Web/Youtube/Search/YoutubeSearchWithTables.feature.ndjson", 6);
         }
         
         [global::NUnit.Framework.TestAttribute()]
@@ -155,7 +155,7 @@ await this.FeatureBackgroundAsync();
  await testRunner.WhenAsync(string.Format("I search for \"{0}\"", searchValue), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 11
- await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("Search results page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -187,15 +187,19 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
 await this.FeatureBackgroundAsync();
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
-                            "SearchValue"});
+                            "SearchValue",
+                            "UrlQuery"});
                 table1.AddRow(new string[] {
-                            "Heroes 2"});
+                            "Heroes",
+                            "Heroes"});
                 table1.AddRow(new string[] {
-                            "Fallout 2"});
+                            "Fallout 2",
+                            "Fallout+2"});
                 table1.AddRow(new string[] {
-                            "Might and Magic 6 -heroes"});
+                            "Might and Magic 6 -heroes",
+                            "Might+and+Magic+6+-heroes"});
 #line 21
- await testRunner.ThenAsync("Search result page is opened for every item in the list", ((string)(null)), table1, "Then ");
+ await testRunner.ThenAsync("Search results page is opened for every item in the list", ((string)(null)), table1, "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

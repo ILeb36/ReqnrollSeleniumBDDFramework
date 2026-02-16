@@ -1,7 +1,8 @@
 ﻿using OpenQA.Selenium;
+using ReqnrollSeleniumTestProject.Support.Interfaces;
 using ReqnrollSeleniumTestProject.Support.StaticHelpers;
 
-namespace ReqnrollSeleniumTestProject.Support.Screenshots
+namespace ReqnrollSeleniumTestProject.Support.Helpers
 {
     public class DefaultScreensaver : IScreensaver
     {
@@ -9,15 +10,15 @@ namespace ReqnrollSeleniumTestProject.Support.Screenshots
 
         public DefaultScreensaver()
         {
-            this.screenshotsFolderPath = FileExplorerHelper.GetScreenshotsFolderPath();
-            FileExplorerHelper.CreateFolder(this.screenshotsFolderPath);
+            screenshotsFolderPath = FileExplorerHelper.GetScreenshotsFolderPath();
+            FileExplorerHelper.CreateFolder(screenshotsFolderPath);
         }
 
         public string MakeScreenshot(IWebDriver driver, string screenshotName)
         {
             ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
             Screenshot screenshot = takesScreenshot.GetScreenshot();
-            string screenshotPath = Path.Combine(this.screenshotsFolderPath, this.GetScreenshotNameWithDatetime(screenshotName));
+            string screenshotPath = Path.Combine(screenshotsFolderPath, GetScreenshotNameWithDatetime(screenshotName));
             screenshot.SaveAsFile(screenshotPath);
             return screenshotPath;
         }

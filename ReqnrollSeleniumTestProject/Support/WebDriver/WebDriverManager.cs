@@ -21,7 +21,9 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             var browserName = ConfigReader.GetBrowser;
             var browser = ParseBrowserName(browserName);
             var webDriverStrategy = GetWebDriverStrategy(browser);
-            return webDriverStrategy.GetWebDriver(downloadFolderPath);
+            var webDriver = webDriverStrategy.GetWebDriver(downloadFolderPath);
+            webDriver.Manage().Timeouts().ImplicitWait = ConfigReader.GetImplicitTimeout;
+            return webDriver;
         }
 
         private static IWebDriverStrategy GetWebDriverStrategy(BrowserEnum browser)
