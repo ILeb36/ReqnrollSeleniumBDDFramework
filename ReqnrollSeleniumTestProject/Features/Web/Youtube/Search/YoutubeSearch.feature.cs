@@ -11,7 +11,7 @@
 #region Designer generated code
 #pragma warning disable
 using Reqnroll;
-namespace ReqnrollSeleniumTestProject.Features.Web.Youtube
+namespace ReqnrollSeleniumTestProject.Features.Web.Youtube.Search
 {
     
     
@@ -27,7 +27,7 @@ namespace ReqnrollSeleniumTestProject.Features.Web.Youtube
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features/Web/Youtube", "Youtube search feature", "Search for Might and Magic on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features/Web/Youtube/Search", "Youtube search feature", "Search for Might and Magic on Youtube", global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
 #line 1 "YoutubeSearch.feature"
 #line hidden
@@ -114,7 +114,7 @@ namespace ReqnrollSeleniumTestProject.Features.Web.Youtube
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Web/Youtube/YoutubeSearch.feature.ndjson", 4);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Web/Youtube/Search/YoutubeSearch.feature.ndjson", 4);
         }
         
         [global::NUnit.Framework.TestAttribute()]
@@ -146,7 +146,7 @@ await this.FeatureBackgroundAsync();
  await testRunner.WhenAsync("I search for \"Might and Magic 8\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 11
- await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("Search results page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -181,10 +181,13 @@ await this.FeatureBackgroundAsync();
  await testRunner.WhenAsync("I search for \"Might and Magic 7\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 16
- await testRunner.ThenAsync("Search result page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("Search results page is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 17
- await testRunner.AndAsync("Scenario is failed for testing purpose", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.WhenAsync("I click Youtube logo", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 18
+ await testRunner.ThenAsync("Search results page is absent", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

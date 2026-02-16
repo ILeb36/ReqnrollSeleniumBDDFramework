@@ -8,7 +8,7 @@ Background:
 @web
 Scenario Outline: Search for various games with Outline
 	When I search for "<SearchValue>"
-	Then Search result page is opened
+	Then Search results page is opened
 
 	Examples: 
 	| SearchValue               |
@@ -18,8 +18,8 @@ Scenario Outline: Search for various games with Outline
 
 @web
 Scenario: Search for various games with DataTable
-	Then Search result page is opened for every item in the list
-	| SearchValue               |
-	| Heroes 2                  |
-	| Fallout 2                 |
-	| Might and Magic 6 -heroes |
+	Then Search results page is opened for every item in the list
+	| SearchValue               | UrlQuery                  |
+	| Heroes                    | Heroes                    |
+	| Fallout 2                 | Fallout+2                 |
+	| Might and Magic 6 -heroes | Might+and+Magic+6+-heroes |

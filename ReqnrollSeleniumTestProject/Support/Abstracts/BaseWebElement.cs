@@ -9,12 +9,12 @@ namespace ReqnrollSeleniumTestProject.Support.Abstracts
     {
         public By Locator { get; }
         public abstract string ElementType { get; }
-        private By? parentLocator { get; }
+        private BaseWebElement? parentElement { get; }
 
-        protected BaseWebElement(By locator, By? parentLocator = null)
+        protected BaseWebElement(By locator, BaseWebElement? parentElement = null)
         {
             Locator = locator;
-            this.parentLocator = parentLocator;
+            this.parentElement = parentElement;
         }
 
         public void Click()
@@ -77,11 +77,39 @@ namespace ReqnrollSeleniumTestProject.Support.Abstracts
         {
             try
             {
-                GetWebDriverWait(timeout).Until(driver => driver.FindElement(Locator, parentLocator));
+                GetWebDriverWait(timeout).Until(driver =>
+                {
+                    try
+                    {
+                        return driver.FindElement(this.Locator, this.parentElement?.GetElement());
+                    }
+                    catch (NoSuchElementException)
+                    {
+                        return null;
+                    }
+                });
             }
-            catch (TimeoutException exception)
+            catch (WebDriverTimeoutException exception)
             {
-                var message = $"{ElementType} with locator {Locator} was not found!";
+                var message = $"{this.ElementType} with locator {this.Locator} was not found!";
+                Logger.Error(message, exception);
+                throw;
+            }
+        }
+
+        public void WaitForElementIsAbsent(TimeSpan? timeout = null)
+        {
+            try
+            {
+                GetWebDriverWait(timeout).Until(driver =>
+                {
+                    var element = driver.FindElement(Locator, this.parentElement?.GetElement());
+                    return false;
+                });
+            }
+            catch (WebDriverTimeoutException exception)
+            {
+                var message = $"{this.ElementType} with locator {this.Locator} was not found!";
                 Logger.Error(message, exception);
                 throw;
             }
@@ -93,16 +121,16 @@ namespace ReqnrollSeleniumTestProject.Support.Abstracts
             {
                 GetWebDriverWait(timeout).Until(driver =>
                 {
-                    var element = driver.FindElement(Locator, parentLocator);
+                    var element = driver.FindElement(Locator, this.parentElement?.GetElement());
                     return CheckIfElemenetIsEnabled(element);
                 });
 
             }
-            catch (TimeoutException exception)
+            catch (WebDriverTimeoutException exception)
             {
-                var message = $"{ElementType} with locator {Locator} was disabled or missing!";
-                Logger.Error(message);
-                throw new InvalidElementStateException(message, exception);
+                var message = $"{this.ElementType} with locator {this.Locator} was disabled or missing!";
+                Logger.Error(message, exception);
+                throw;
             }
         }
 
@@ -113,7 +141,21 @@ namespace ReqnrollSeleniumTestProject.Support.Abstracts
                 WaitForElementIsPresent(timeout);
                 return true;
             }
-            catch (NoSuchElementException)
+            catch (WebDriverTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        // The problem is that some elemenets are still exist when page is already loaded and will disappear only after some time
+        public bool IsDisappeared(TimeSpan? timeout = null)
+        {
+            try
+            {
+                WaitForElementIsAbsent(timeout);
+                return true;
+            }
+            catch (WebDriverTimeoutException)
             {
                 return false;
             }
@@ -127,7 +169,7 @@ namespace ReqnrollSeleniumTestProject.Support.Abstracts
         protected IWebElement GetElement(TimeSpan? timeout = null)
         {
             WaitForElementIsPresent(timeout);
-            return WebDriver.FindElement(Locator, parentLocator);
+            return WebDriver.FindElement(this.Locator, this.parentElement?.GetElement());
         }
 
         protected WebDriverWait GetWebDriverWait(TimeSpan? timeout = null)

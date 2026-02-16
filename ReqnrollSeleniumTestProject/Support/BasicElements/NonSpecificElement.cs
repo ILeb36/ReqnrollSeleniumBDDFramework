@@ -5,7 +5,7 @@ namespace ReqnrollSeleniumTestProject.Support.BasicElements
 {
     public class Button : BaseWebElement
     {
-        public Button(By locator, By parentLocator) : base(locator, parentLocator)
+        public Button(By locator, BaseWebElement? parentElement = null) : base(locator, parentElement)
         {
         }
 

@@ -9,23 +9,21 @@ namespace ReqnrollSeleniumTestProject.Support.Helpers
 
         }
 
-        // to do: add custom logger later
+        // to do: add custom logger when I have time
 
-#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-        public void Error(string message, Exception exception = null, string screenshot = null)
+        public void Error(string message, Exception? exception = null, string? screenshot = null)
         {
             Console.WriteLine(message);
         }
 
-        public void Info(string message, Exception exception = null, string screenshot = null)
+        public void Info(string message, Exception? exception = null, string? screenshot = null)
         {
             Console.WriteLine(message);
         }
 
-        public void Warn(string message, Exception exception = null, string screenshot = null)
+        public void Warn(string message, Exception? exception = null, string? screenshot = null)
         {
             Console.WriteLine(message);
         }
-#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 }

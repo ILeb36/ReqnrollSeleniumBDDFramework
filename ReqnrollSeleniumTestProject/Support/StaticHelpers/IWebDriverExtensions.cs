@@ -4,9 +4,9 @@ namespace ReqnrollSeleniumTestProject.Support.StaticHelpers
 {
     public static class IWebDriverExtensions
     {
-        public static IWebElement FindElement(this IWebDriver webDriver, By elementLocator, By? parentElementLocator = null)
+        public static IWebElement FindElement(this IWebDriver webDriver, By elementLocator, IWebElement? parentElement = null)
         {
-            return parentElementLocator is null ? webDriver.FindElement(elementLocator) : webDriver.FindElement(parentElementLocator).FindElement(elementLocator);
+            return parentElement is null ? webDriver.FindElement(elementLocator) : parentElement.FindElement(elementLocator);
         }
     }
 }

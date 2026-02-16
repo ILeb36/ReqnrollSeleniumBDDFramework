@@ -5,7 +5,7 @@ namespace ReqnrollSeleniumTestProject.Support.BasicElements
 {
     public class NonSpecificElement : BaseWebElement
     {
-        public NonSpecificElement(By locator, By? parentLocator = null) : base(locator, parentLocator)
+        public NonSpecificElement(By locator, BaseWebElement? parentElement = null) : base(locator, parentElement)
         {
         }
 
