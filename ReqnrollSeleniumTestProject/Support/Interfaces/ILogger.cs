@@ -9,9 +9,9 @@ namespace ReqnrollSeleniumTestProject.Support.Interfaces
     public interface ILogger
     {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-        void Info(string message, string screenshotPath = null);
-        void Warn(string message, string screenshotPath = null);
-        void Error(string message, string screenshotPath = null);
+        void Info(string message, Exception exception = null, string screenshotPath = null);
+        void Warn(string message, Exception exception = null, string screenshotPath = null);
+        void Error(string message, Exception exception = null, string screenshotPath = null);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
     }
 }

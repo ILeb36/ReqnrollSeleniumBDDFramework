@@ -4,6 +4,6 @@ namespace ReqnrollSeleniumTestProject.Support.Interfaces
 {
     public interface IJavascriptExecution
     {
-        public object ExecuteJavascript(IWebDriver webDriver, string script);
+        public object? ExecuteJavascript(IWebDriver webDriver, string script, IWebElement? webElement = null);
     }
 }

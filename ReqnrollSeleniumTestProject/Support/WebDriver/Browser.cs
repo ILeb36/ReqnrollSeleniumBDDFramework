@@ -74,7 +74,8 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             }
             catch (Exception exception)
             {
-                this.logger.Error(exception.StackTrace);
+                this.logger.Error($"And error occured while waiting for web page '{this.Url}' to load.", exception);
+                throw;
             }
         }
 
@@ -101,7 +102,8 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             }
             catch (Exception exception)
             {
-                this.logger.Error(exception.StackTrace);
+                this.logger.Error($"An error occured while waiting for Url changing from '{oldUrl}' to '{this.Url}'.", exception);
+                throw;
             }
         }
 
@@ -141,6 +143,11 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
         {
             this.logger.Info($"Scrolling to the down right corner of the page at {this.Url}");
             this.javascriptExecution.ExecuteJavascript(WebDriver, "window.scrollTo(document.body.scrollWidth, document.body.scrollHeight)");
+        }
+
+        public object? ExecuteJavascript(string script, IWebElement? webElement = null)
+        {
+            return this.javascriptExecution.ExecuteJavascript(this.WebDriver, script, webElement);
         }
 
         private IAlert WaitForAlert()
