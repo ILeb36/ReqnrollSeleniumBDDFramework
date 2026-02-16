@@ -39,19 +39,19 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             return screensaver.MakeScreenshot(WebDriver, screenshotName);
         }
 
-        public void OpenUrl(string url)
+        public Browser OpenUrl(string url)
         {
             WebDriver.Navigate().GoToUrl(url);
-            WaitForPageToLoad();
+            return WaitForPageToLoad();
         }
 
-        public void OpenBaseUrl()
+        public Browser OpenBaseUrl()
         {
             var url = ConfigReader.GetSiteUrl;
-            this.OpenUrl(url);
+            return this.OpenUrl(url);
         }
 
-        public void CloseBrowser()
+        public Browser CloseBrowser()
         {
             if (WebDriver != null)
             {
@@ -59,11 +59,12 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
                 WebDriver.Dispose();
                 webDriver = null;
             }
+            return this;
         }
 
-        public void WaitForPageToLoad()
+        public Browser WaitForPageToLoad(TimeSpan? timeout = null)
         {
-            var wait = new WebDriverWait(WebDriver, ConfigReader.GetPageLoadingTimeout);
+            var wait = new WebDriverWait(WebDriver, timeout ?? ConfigReader.GetPageLoadingTimeout);
             try
             {
                 wait.Until(driver =>
@@ -71,6 +72,8 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
                     var result = this.javascriptExecution.ExecuteJavascript(WebDriver, "return document['readyState'] ? 'complete' == document.readyState : true");
                     return result is bool && (bool)result;
                 });
+
+                return this;
             }
             catch (Exception exception)
             {
@@ -79,9 +82,9 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             }
         }
 
-        public string WaitFotrAlertAndAccept()
+        public string WaitForAnAlertAndClickAccept()
         {
-            var alert = this.WaitForAlert();
+            var alert = this.WaitForAnAlert();
             string alertText = alert.Text ?? string.Empty;
             this.logger.Info($"Alert with text '{alertText}' is opened");
             alert.Accept();
@@ -89,7 +92,7 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             return alertText;
         }
 
-        public void WaitForUrlToChange(string oldUrl)
+        public Browser WaitForUrlToChange(string oldUrl)
         {
             var wait = new WebDriverWait(WebDriver, ConfigReader.GetPageLoadingTimeout);
             try
@@ -99,6 +102,8 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
                     var cuurentUrl = driver.Url;
                     return !oldUrl.Equals(cuurentUrl);
                 });
+
+                return this;
             }
             catch (Exception exception)
             {
@@ -107,42 +112,48 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             }
         }
 
-        public void RefreshPage()
+        public Browser RefreshPage()
         {
             this.logger.Info("Refresh web page");
             WebDriver.Navigate().Refresh();
+            return this.WaitForPageToLoad();
         }
 
-        public void SwtichToLastWindow()
+        public Browser SwtichToLastWindow()
         {
             if (this.WindowsCount > 1)
             {
                 WebDriver.SwitchTo().Window(WebDriver.WindowHandles[^1]);
             }
 
+            return this;
         }
 
-        public void SwtichToFirstWindow()
+        public Browser SwtichToFirstWindow()
         {
             WebDriver.SwitchTo().Window(WebDriver.WindowHandles[0]);
+            return this;
         }
 
-        public void WaitForNewWindowToOpen(int previousWindowsCount)
+        public Browser WaitForNewWindowToOpen(int previousWindowsCount)
         {
             var wait = new WebDriverWait(WebDriver, ConfigReader.GetPageLoadingTimeout);
             wait.Until(driver => driver.WindowHandles.Count > previousWindowsCount);
+            return this.SwtichToLastWindow().WaitForPageToLoad();
         }
 
-        public void ScrollCurrentPageToTheTop()
+        public Browser ScrollCurrentPageToTheTop()
         {
             this.logger.Info($"Scrolling to the top of the page at {this.Url}");
             this.javascriptExecution.ExecuteJavascript(WebDriver, "window.scrollTo(0, 0)");
+            return this;
         }
 
-        public void ScrollCurrentPageToTheDownRight()
+        public Browser ScrollCurrentPageToTheDownRight()
         {
             this.logger.Info($"Scrolling to the down right corner of the page at {this.Url}");
             this.javascriptExecution.ExecuteJavascript(WebDriver, "window.scrollTo(document.body.scrollWidth, document.body.scrollHeight)");
+            return this;
         }
 
         public object? ExecuteJavascript(string script, IWebElement? webElement = null)
@@ -150,7 +161,7 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             return this.javascriptExecution.ExecuteJavascript(this.WebDriver, script, webElement);
         }
 
-        private IAlert WaitForAlert()
+        private IAlert WaitForAnAlert()
         {
             var wait = new WebDriverWait(WebDriver, ConfigReader.GetAlertLoadingTimeout);
             try

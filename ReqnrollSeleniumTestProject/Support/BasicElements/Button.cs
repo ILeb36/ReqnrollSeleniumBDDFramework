@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
+using ReqnrollSeleniumTestProject.Support.Abstracts;
 
 namespace ReqnrollSeleniumTestProject.Support.BasicElements
 {
-    public class Button : BaseWebElement
+    public class NonSpecificElement : BaseWebElement
     {
-        public Button(By locator) : base(locator)
+        public NonSpecificElement(By locator, By? parentLocator = null) : base(locator, parentLocator)
         {
         }
 

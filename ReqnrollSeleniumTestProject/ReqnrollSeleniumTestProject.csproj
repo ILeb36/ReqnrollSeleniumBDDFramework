@@ -19,7 +19,8 @@
 
   <ItemGroup>
     <Folder Include="Drivers\" />
-    <Folder Include="Pages\" />
+    <Folder Include="Locators\Youtube\" />
+    <Folder Include="Pages\Youtube\" />
   </ItemGroup>
 
   <ItemGroup>

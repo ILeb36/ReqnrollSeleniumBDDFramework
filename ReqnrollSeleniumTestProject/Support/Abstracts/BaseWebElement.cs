@@ -1,10 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using ReqnrollSeleniumTestProject.Support.Abstracts;
 using ReqnrollSeleniumTestProject.Support.StaticHelpers;
 
-namespace ReqnrollSeleniumTestProject.Support.BasicElements
+namespace ReqnrollSeleniumTestProject.Support.Abstracts
 {
     public abstract class BaseWebElement : BaseWebEntity
     {
@@ -14,7 +13,7 @@ namespace ReqnrollSeleniumTestProject.Support.BasicElements
 
         protected BaseWebElement(By locator, By? parentLocator = null)
         {
-            this.Locator = locator;
+            Locator = locator;
             this.parentLocator = parentLocator;
         }
 
@@ -27,7 +26,7 @@ namespace ReqnrollSeleniumTestProject.Support.BasicElements
             }
             catch (InvalidOperationException exception)
             {
-                var message = $"Not able to click at {this.ElementType} '{this.Locator}'";
+                var message = $"Not able to click at {ElementType} '{Locator}'";
                 Logger.Error(message, exception);
                 throw;
             }
@@ -78,11 +77,11 @@ namespace ReqnrollSeleniumTestProject.Support.BasicElements
         {
             try
             {
-                GetWebDriverWait(timeout).Until(driver => driver.FindElement(this.Locator, this.parentLocator));
+                GetWebDriverWait(timeout).Until(driver => driver.FindElement(Locator, parentLocator));
             }
             catch (TimeoutException exception)
             {
-                var message = $"{this.ElementType} with locator {this.Locator} was not found!";
+                var message = $"{ElementType} with locator {Locator} was not found!";
                 Logger.Error(message, exception);
                 throw;
             }
@@ -94,14 +93,14 @@ namespace ReqnrollSeleniumTestProject.Support.BasicElements
             {
                 GetWebDriverWait(timeout).Until(driver =>
                 {
-                    var element = driver.FindElement(this.Locator, this.parentLocator);
+                    var element = driver.FindElement(Locator, parentLocator);
                     return CheckIfElemenetIsEnabled(element);
                 });
 
             }
             catch (TimeoutException exception)
             {
-                var message = $"{this.ElementType} with locator {this.Locator} was disabled or missing!";
+                var message = $"{ElementType} with locator {Locator} was disabled or missing!";
                 Logger.Error(message);
                 throw new InvalidElementStateException(message, exception);
             }
@@ -128,7 +127,7 @@ namespace ReqnrollSeleniumTestProject.Support.BasicElements
         protected IWebElement GetElement(TimeSpan? timeout = null)
         {
             WaitForElementIsPresent(timeout);
-            return WebDriver.FindElement(this.Locator, this.parentLocator);
+            return WebDriver.FindElement(Locator, parentLocator);
         }
 
         protected WebDriverWait GetWebDriverWait(TimeSpan? timeout = null)
