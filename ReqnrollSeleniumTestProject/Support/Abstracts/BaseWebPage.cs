@@ -5,15 +5,12 @@ namespace ReqnrollSeleniumTestProject.Support.Abstracts
 {
     public abstract class BaseWebPage : BaseWebEntity
     {
-        public By PageIdentifyingLocator { get; }
-        public string PageName { get; }
-        protected NonSpecificElement PageIdentifyingElement { get; }
+        public abstract string PageName { get; }
+        protected NonSpecificElement PageIdentifyingElement { get; private set; }
 
-        protected BaseWebPage(By pageIdentifyingLocator, string pageName)
+        protected BaseWebPage(By pageIdentifyingLocator)
         {
-            this.PageIdentifyingLocator = pageIdentifyingLocator;
-            this.PageName = pageName;
-            this.PageIdentifyingElement = new NonSpecificElement(this.PageIdentifyingLocator);
+            this.PageIdentifyingElement = new NonSpecificElement(pageIdentifyingLocator);
         }
 
         public bool IsOpened()
