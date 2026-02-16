@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using ReqnrollSeleniumTestProject.Support.Logs;
-using ReqnrollSeleniumTestProject.Support.Screenshots;
+using ReqnrollSeleniumTestProject.Support.Helpers;
+using ReqnrollSeleniumTestProject.Support.Interfaces;
 using ReqnrollSeleniumTestProject.Support.WebDriver;
 
 namespace ReqnrollSeleniumTestProject.Support
@@ -32,6 +32,7 @@ namespace ReqnrollSeleniumTestProject.Support
                 .AddSingleton<HttpClient, HttpClient>()
                 .AddTransient<IScreensaver, DefaultScreensaver>()
                 .AddSingleton<ILogger, DefaultLogger>()
+                .AddTransient<IJavascriptExecution, JavascriptExecution>()
                 .AddSingleton<Browser, Browser>();
             return services.BuildServiceProvider();
         }

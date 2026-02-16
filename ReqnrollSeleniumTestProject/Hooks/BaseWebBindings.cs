@@ -1,30 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using OpenQA.Selenium;
-using ReqnrollSeleniumTestProject.Support;
-using ReqnrollSeleniumTestProject.Support.WebDriver;
+﻿using ReqnrollSeleniumTestProject.Support.Abstracts;
 
 namespace ReqnrollSeleniumTestProject.Hooks
 {
     [Binding]
-    public abstract class BaseWebBindings : BaseBindings
+    public abstract class BaseWebBindings : BaseWebEntity
     {
-        protected static readonly Browser Browser;
+        protected readonly ScenarioContext ScenarioContext;
 
-        protected IWebDriver WebDriver
+        protected BaseWebBindings(ScenarioContext scenarioContext)
         {
-            get
-            {
-                return Browser.WebDriver;
-            }
-        }
-
-        protected BaseWebBindings(ScenarioContext scenarioContext) : base(scenarioContext)
-        {
-        }
-
-        static BaseWebBindings()
-        {
-            Browser = ServiceContainer.ServiceProvider.GetRequiredService<Browser>();           
+            ScenarioContext = scenarioContext;
         }
     }
 }

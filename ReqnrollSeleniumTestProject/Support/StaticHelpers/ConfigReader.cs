@@ -15,6 +15,14 @@ namespace ReqnrollSeleniumTestProject.Support.StaticHelpers
 
         public static string GetAPIUrl => GetSetting("APIUrl");
 
+        public static TimeSpan GetImplicitTimeout => TimeSpan.FromSeconds(double.Parse(GetSetting("ImplicitTimeout")));
+
+        public static TimeSpan GetPageLoadingTimeout => TimeSpan.FromSeconds(double.Parse(GetSetting("PageLoadingTimeout")));
+
+        public static TimeSpan GetAlertLoadingTimeout => TimeSpan.FromSeconds(double.Parse(GetSetting("AlertLoadingTimeout")));
+
+        public static TimeSpan GetFindWebElementTimeout => TimeSpan.FromSeconds(double.Parse(GetSetting("FindWebElementTimeout")));
+
         private static string GetSetting(string key)
         {
             var value = Environment.GetEnvironmentVariable(key);

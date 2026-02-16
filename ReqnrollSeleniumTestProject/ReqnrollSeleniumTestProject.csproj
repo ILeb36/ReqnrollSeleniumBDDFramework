@@ -19,9 +19,7 @@
 
   <ItemGroup>
     <Folder Include="Drivers\" />
-    <Folder Include="Features\API\" />
     <Folder Include="Pages\" />
-    <Folder Include="StepDefinitions\API\" />
   </ItemGroup>
 
   <ItemGroup>

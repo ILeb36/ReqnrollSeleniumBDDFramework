@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ReqnrollSeleniumTestProject.Support.Screenshots
+namespace ReqnrollSeleniumTestProject.Support.Interfaces
 {
     public interface IScreensaver
     {
