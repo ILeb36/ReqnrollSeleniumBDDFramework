@@ -25,7 +25,7 @@ namespace ReqnrollSeleniumTestProject.Support
             ServiceProvider = InitServiceProvider();
         }
 
-        private IServiceProvider InitServiceProvider()
+        private static IServiceProvider InitServiceProvider()
         {
             var services = new ServiceCollection();
             services

@@ -13,10 +13,10 @@ namespace ReqnrollSeleniumTestProject.Support.Helpers
             this.logger = logger;
         }
 
-        public object? ExecuteJavascript(IWebDriver webDriver, string script, IWebElement? element)
+        public object? ExecuteJavascript(IWebDriver webDriver, string script, IWebElement? webElement = null)
         {
             this.logger.Info($"Execute script with WebElement: '{script}'.\r\n");
-            return ((IJavaScriptExecutor)webDriver).ExecuteScript(script, element);
+            return ((IJavaScriptExecutor)webDriver).ExecuteScript(script, webElement);
         }
     }
 }

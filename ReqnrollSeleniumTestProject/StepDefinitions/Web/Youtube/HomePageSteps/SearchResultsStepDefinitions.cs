@@ -8,7 +8,7 @@ namespace ReqnrollSeleniumTestProject.StepDefinitions.Web.Youtube.HomePageSteps
     [Binding]
     public class SearchResultsStepDefinitions : BaseWebBindings
     {
-        private HomePage homePage = new HomePage();
+        private readonly HomePage homePage = new HomePage();
 
         public SearchResultsStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
         {

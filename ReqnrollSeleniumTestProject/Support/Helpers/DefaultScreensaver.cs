@@ -6,7 +6,7 @@ namespace ReqnrollSeleniumTestProject.Support.Helpers
 {
     public class DefaultScreensaver : IScreensaver
     {
-        private string screenshotsFolderPath;
+        private readonly string screenshotsFolderPath;
 
         public DefaultScreensaver()
         {
@@ -23,7 +23,7 @@ namespace ReqnrollSeleniumTestProject.Support.Helpers
             return screenshotPath;
         }
 
-        private string GetScreenshotNameWithDatetime(string screenshotName)
+        private static string GetScreenshotNameWithDatetime(string screenshotName)
         {
             return string.Concat(screenshotName, DateTime.Now.ToString("_dd.MM.yyyy_HH.mm"), ".png");
         }

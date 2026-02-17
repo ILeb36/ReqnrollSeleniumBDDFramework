@@ -18,10 +18,5 @@ namespace ReqnrollSeleniumTestProject.Locators.Youtube.CommonElements
             public static By SearchSectionContainer => By.XPath("./div[@id='center']");
             public static By SearchTextBox => By.Name("search_query");
         }
-
-        public static class LoginSection
-        {
-
-        }
     }
 }

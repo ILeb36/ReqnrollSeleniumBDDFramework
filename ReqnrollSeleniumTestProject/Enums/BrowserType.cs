@@ -1,6 +1,6 @@
 ﻿namespace ReqnrollSeleniumTestProject.Enums
 {
-    public enum BrowserEnum
+    public enum BrowserType
     {
         firefox,
         chrome
