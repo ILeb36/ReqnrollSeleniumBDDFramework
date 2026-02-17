@@ -1,18 +1,18 @@
-This is a clean and simple self-developed test automation framework that I spent about 24 hours on to show my experience as QA automation engineer (and as a small example of how I write code).__
-Some simple tests for the YouTube website are also included to demonstrate how it works.__
-It includes Reqnroll as a BDD testing framework, Selenium Webdriver for working with web browsers, NUnit as a testing framework and Allure for report generation (by the way, Reqnroll can generate HTML reports on its own).__
+This is a clean and simple self-developed test automation framework that I spent about 24 hours on to show my experience as QA automation engineer (and as a small example of how I write code). <br />
+Some simple tests for the YouTube website are also included to demonstrate how it works. <br />
+It includes Reqnroll as a BDD testing framework, Selenium Webdriver for working with web browsers, NUnit as a testing framework and Allure for report generation (by the way, Reqnroll can generate HTML reports on its own). <br />
 To generate allure report: "allure generate --clean --single-file"
 
 Patterns that were used in the implementation:
-- Page object model__
-As a result of using it, I can create chains of elements that work with a specific part of the page, which makes the code more understandable and readable by separating the logic into different classes through composition:__
-      "HomePage.Header.SearchSection.SearchTextBox.EnterText(content.SearchValue);"
+- Page object model <br />
+As a result of using it, I can create chains of elements that work with a specific part of the page, which makes the code more understandable and readable by separating the logic into different classes through composition: <br />
+Example of using: "HomePage.Header.SearchSection.SearchTextBox.EnterText(content.SearchValue);"
 - Singleton
 - Fluent classes
 - Strategy (to create the required WebDriver type depending on the selected browser)
 - Dependency Injection container
 
-Screenshots are automatically created for every failed test.__
+Screenshots are automatically created for every failed test. <br />
 BaseWebElement and Browser base classes contain a lot of functionality for pages and elements that I used many times when I worked as a QA engineer.
 
 todo:
