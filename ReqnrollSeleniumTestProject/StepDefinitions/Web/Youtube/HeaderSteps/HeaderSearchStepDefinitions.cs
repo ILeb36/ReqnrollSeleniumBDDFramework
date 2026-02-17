@@ -6,7 +6,7 @@ namespace ReqnrollSeleniumTestProject.StepDefinitions.Web.Youtube.HeaderSteps
     [Binding]
     internal class HeaderSearchStepDefinitions : BaseWebBindings
     {
-        private HomePage homePage = new HomePage();
+        private readonly HomePage homePage = new HomePage();
 
         public HeaderSearchStepDefinitions(ScenarioContext scenarioContext) : base(scenarioContext)
         {

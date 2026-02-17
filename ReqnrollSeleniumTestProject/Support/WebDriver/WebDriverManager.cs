@@ -26,29 +26,29 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
             return webDriver;
         }
 
-        private static IWebDriverStrategy GetWebDriverStrategy(BrowserEnum browser)
+        private static IWebDriverStrategy GetWebDriverStrategy(BrowserType browser)
         {
             switch (browser)
             {
-                case BrowserEnum.firefox:
+                case BrowserType.firefox:
                     return new FirefoxWebDriverStrategy();
-                case BrowserEnum.chrome:
+                case BrowserType.chrome:
                     return new ChromeWebDriverStrategy();
                 default:
                     throw new NotSupportedException($"We don't know how to initialize browser {browser}.");
             }
         }
 
-        private static BrowserEnum ParseBrowserName(string browserName)
+        private static BrowserType ParseBrowserName(string browserName)
         {
-            if (EnumsHelper.TryParse(browserName, true, out BrowserEnum? enumElement))
+            if (EnumsHelper.TryParse(browserName, true, out BrowserType? enumElement))
             {
 #pragma warning disable CS8629 // Nullable value type may be null.
                 return enumElement.Value;
 #pragma warning restore CS8629 // Nullable value type may be null.
             }
 
-            throw new Exception($"We can't convert browser {browserName} to {nameof(BrowserEnum)} element");
+            throw new Exception($"We can't convert browser {browserName} to {nameof(BrowserType)} element");
         }
     }
 }

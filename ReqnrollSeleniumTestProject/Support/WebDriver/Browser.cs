@@ -12,8 +12,8 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
         private readonly ILogger logger;
         private readonly IJavascriptExecution javascriptExecution;
 
-        public int WindowsCount => this.WebDriver.WindowHandles.Count;
-        public string Url => this.WebDriver.Url;
+        public int WindowsCount => WebDriver.WindowHandles.Count;
+        public string Url => WebDriver.Url;
 
         private static IWebDriver? webDriver;
 
@@ -21,7 +21,7 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
         {
             get
             {
-                //to do: add monitor
+                //todo: check how it works during rannuning tests in parallel
                 webDriver ??= WebDriverManager.GetNewWebDriver;
                 return webDriver;
             }
@@ -158,7 +158,7 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver
 
         public object? ExecuteJavascript(string script, IWebElement? webElement = null)
         {
-            return this.javascriptExecution.ExecuteJavascript(this.WebDriver, script, webElement);
+            return this.javascriptExecution.ExecuteJavascript(WebDriver, script, webElement);
         }
 
         private IAlert WaitForAnAlert()

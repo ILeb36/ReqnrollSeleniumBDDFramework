@@ -11,7 +11,7 @@ namespace ReqnrollSeleniumTestProject.Support.WebDriver.WebDriverInitialization
             return new FirefoxDriver(options);
         }
 
-        private FirefoxOptions GetFirefoxOptions(string downloadFolder)
+        private static FirefoxOptions GetFirefoxOptions(string downloadFolder)
         {
             var options = new FirefoxOptions();
             options.SetPreference("browser.helperApps.alwaysAsk.force", false);

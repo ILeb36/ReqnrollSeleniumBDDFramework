@@ -103,7 +103,7 @@ namespace ReqnrollSeleniumTestProject.Support.Abstracts
             {
                 GetWebDriverWait(timeout).Until(driver =>
                 {
-                    var element = driver.FindElement(Locator, this.parentElement?.GetElement());
+                    var _ = driver.FindElement(Locator, this.parentElement?.GetElement());
                     return false;
                 });
             }
