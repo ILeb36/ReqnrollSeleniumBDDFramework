@@ -17,7 +17,8 @@ BaseWebElement and Browser base classes contain a lot of functionality for pages
 
 todo:
 1) Add some kind of logger instead of console logs.
-2) Add a custom class for executing multiple assertions in a loop that will create a screenshot for each failure, not just at the end of a failing step.
-3) Check how the framework works during parallel test execution ("--agents X" when run via NUnit).
-4) Find out why Allure can't access the screenshot folder (in one of its "attach" method overloads).
-5) Investigate how to attach a screenshot directly to a failing step, rather than to the end of all steps, if that's even possible (still doing it even if called from [AfterStep] hook).
+2) Unit tests.
+3) Add a custom class for executing multiple assertions in a loop that will create a screenshot for each failure, not just at the end of a failing step.
+4) Check how the framework works during parallel test execution ("--agents X" when run via NUnit).
+5) Find out why Allure can't access the screenshot folder (in one of its "attach" method overloads).
+6) Investigate how to attach a screenshot directly to a failing step, rather than to the end of all steps, if that's even possible (still doing it even if called from [AfterStep] hook).
