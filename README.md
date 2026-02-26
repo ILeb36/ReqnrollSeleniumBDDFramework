@@ -1,4 +1,4 @@
-This is a clean and simple self-developed test automation framework that I spent about 24 hours on to show my experience as QA automation engineer (and as a small example of how I write code). <br />
+This is a clean and simple self-developed test automation framework. It exists just to show how Page Object Model can be impelemented in C# automation framewok. Nothing but this, since I have lack of time.<br />
 Some simple tests for the YouTube website are also included to demonstrate how it works. <br />
 It includes Reqnroll as a BDD testing framework, Selenium Webdriver for working with web browsers, NUnit as a testing framework and Allure for report generation (by the way, Reqnroll can generate HTML reports on its own). <br />
 To generate allure report (require Allure to be installed in OS): "allure generate --clean --single-file".
@@ -15,7 +15,7 @@ Example of using: "HomePage.Header.SearchSection.SearchTextBox.EnterText(content
 Screenshots are automatically created for every failed test and attached to Allure report. <br />
 BaseWebElement and Browser base classes contain a lot of functionality for pages and elements that I used many times when I worked as a QA engineer.
 
-todo:
+todo, when I have some spare time:
 1) Add some kind of logger instead of console logs.
 2) Unit tests.
 3) Add a custom class for executing multiple assertions in a loop that will create a screenshot for each failure, not just at the end of a failing step.
